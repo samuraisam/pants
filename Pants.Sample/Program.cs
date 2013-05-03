@@ -14,12 +14,14 @@ namespace Pants.Sample
         static void Main(string[] args)
         {
             BasicCoroutineDemo();
+            JoinedCoroutineDemo();
         }
 
-        // -----------------------------------------------------------------------------------------
-        
+        #region basiccoroutine
+
         static void BasicCoroutineDemo()
         {
+            Debug.WriteLine("----------------------------------------------------------------------------");
             Debug.WriteLine("creating pool thread");
             Coroutine.IPool pool = new Coroutine.RoundRobinPool();
             Thread thread = new Thread(pool.Start);
@@ -30,13 +32,14 @@ namespace Pants.Sample
 
             Debug.WriteLine("shutting down pool and waiting for it to finish");
 
-            pool.Finish(true);
+            pool.Join(true);
 
             Debug.WriteLine("finished shutting down pool");
 
             thread.Join();
 
             Debug.WriteLine("all done, scheduler thread exited");
+            Debug.WriteLine("----------------------------------------------------------------------------");
         }
 
         static IEnumerable<Coroutine.CoroutineNext> Number1()
@@ -74,5 +77,64 @@ namespace Pants.Sample
             }
             Debug.WriteLine("coroutine 2: finished");
         }
+
+        #endregion
+
+        #region joinedcoroutine
+
+        static void JoinedCoroutineDemo()
+        {
+            Debug.WriteLine("----------------------------------------------------------------------------");
+            Debug.WriteLine("creating pool thread");
+            Coroutine.IPool pool = new Coroutine.RoundRobinPool();
+            Thread thread = new Thread(pool.Start);
+            thread.Start();
+
+            Coroutine.ICoroutine co = new Coroutine.Coroutine(() => new ObjectCoroutine());
+
+            pool.Add(co);
+
+            Debug.WriteLine("joining coroutine");
+            co.Join();
+            Debug.WriteLine("coroutine has been joined");
+
+            Debug.WriteLine("Joining pool");
+
+            pool.Join(true);
+
+            Debug.WriteLine("finished shutting down pool");
+
+            thread.Join();
+
+            Debug.WriteLine("all done, scheduler thread exited");
+            Debug.WriteLine("----------------------------------------------------------------------------");
+        }
+
+        class ObjectCoroutine : IEnumerable<Coroutine.CoroutineNext>
+        {
+            public IEnumerator<Coroutine.CoroutineNext> GetEnumerator()
+            {
+                Debug.WriteLine("ObjCo began");
+                yield return Coroutine.CoroutineStateFactory.Ready;
+                Debug.WriteLine("ObjCo is finishing");
+            }
+
+            System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+            {
+                // Lets call the generic version here
+                return this.GetEnumerator();
+            }
+        }
+
+        #endregion
+
+        //class MyActor : Actor
+        //{
+        //    public void Receive(Matcher m)
+        //    {
+        //        m.Match(typeof(Message<IMessageType>), (Message<IMessageType> message) => {
+        //        });
+        //    }
+        //}
     }
 }

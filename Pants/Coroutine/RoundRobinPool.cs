@@ -74,7 +74,7 @@ namespace Pants.Coroutine
             }
         }
 
-        public void Finish(bool waitUntilDone)
+        public void Join(bool waitUntilDone)
         {
             lock (_lock) {
                 _isShutdownRequested = true;

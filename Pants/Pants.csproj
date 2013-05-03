@@ -37,7 +37,7 @@
     <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pants.cs" />
+    <Compile Include="Channel\IChannel.cs" />
     <Compile Include="Coroutine\Coroutine.cs" />
     <Compile Include="Coroutine\ICoroutine.cs" />
     <Compile Include="Coroutine\IPool.cs" />

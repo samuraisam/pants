@@ -20,9 +20,10 @@
         void Remove(ICoroutine co);
 
         /// <summary>
-        /// Exits the scheduling loop.
+        /// Exits the scheduling loop and exhausts the pool. This may method may never exit because a coroutine 
+        /// may continually schedule itself or another coroutine.
         /// </summary>
-        /// <param name="waitUntilDone">If this is true then we'll block until the scheduler exits.</param>
-        void Finish(bool waitUntilDone);
+        /// <param name="waitUntilDone">If this is true then we'll block until the scheduler is exhausted.</param>
+        void Join(bool waitUntilDone);
     }
 }

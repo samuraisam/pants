@@ -61,11 +61,23 @@ namespace Pants.Coroutine
 
     public interface ICoroutine
     {
+        /// <summary>
+        /// Mark this coroutine as ready to go.
+        /// </summary>
         void Start();
+
+        /// <summary>
+        /// Block until this coroutine exits.
+        /// </summary>
+        void Join();
+        
+        /// <summary>
+        /// Delegate method to tell the Join() call that we're done
+        /// </summary>
+        void DidStop();
+
         CoroutineState LastKnownState { get; set; }
         IEnumerator<CoroutineNext> Executor { get; }
         CoroutineNext SuspendedContinuation { get; set; }
-        void Join();
-        void DidStop();
     }
 }

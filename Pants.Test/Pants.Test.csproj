@@ -9,7 +9,7 @@
     <ProjectGuid>{6AE5C698-60DB-4189-9C90-4408C3C26C02}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aktor.Test</RootNamespace>
+    <RootNamespace>Pants.Test</RootNamespace>
     <AssemblyName>Aktor.Test</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
@@ -133,9 +133,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Aktor\Aktor.csproj">
+    <ProjectReference Include="..\Pants\Pants.csproj">
       <Project>{8416e96d-78f0-47cf-bb34-845db2a2fb3a}</Project>
-      <Name>Aktor</Name>
+      <Name>Pants</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">

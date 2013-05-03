@@ -1,4 +1,4 @@
-﻿namespace Aktor.Coroutine
+﻿namespace Pants.Coroutine
 {
     public interface IPool
     {

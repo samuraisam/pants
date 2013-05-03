@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Aktor.Coroutine
+namespace Pants.Coroutine
 {
     /// <summary>
     /// This is all you need to know to write Coroutines. It's a delegate that yields the current state of the

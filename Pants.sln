@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aktor", "Aktor\Aktor.csproj", "{8416E96D-78F0-47CF-BB34-845DB2A2FB3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pants", "Pants\Pants.csproj", "{8416E96D-78F0-47CF-BB34-845DB2A2FB3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aktor.Test", "Aktor.Test\Aktor.Test.csproj", "{6AE5C698-60DB-4189-9C90-4408C3C26C02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pants.Test", "Pants.Test\Pants.Test.csproj", "{6AE5C698-60DB-4189-9C90-4408C3C26C02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aktor.Sample", "Aktor.Sample\Aktor.Sample.csproj", "{2E4797DB-9C8D-4621-A337-330FDA1EE71C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pants.Sample", "Pants.Sample\Pants.Sample.csproj", "{2E4797DB-9C8D-4621-A337-330FDA1EE71C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
-using Aktor;
+using Pants;
 
 /**
  * An example of using the Coroutine package.
  */
-namespace Aktor.Sample
+namespace Pants.Sample
 {
     class Program
     {

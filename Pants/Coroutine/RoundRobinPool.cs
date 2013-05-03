@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 
-namespace Aktor.Coroutine
+namespace Pants.Coroutine
 {
     public class RoundRobinPool : IPool
     {

@@ -13,6 +13,13 @@ namespace Aktor.Sample
     {
         static void Main(string[] args)
         {
+            BasicCoroutineDemo();
+        }
+
+        // -----------------------------------------------------------------------------------------
+        
+        static void BasicCoroutineDemo()
+        {
             Debug.WriteLine("creating pool thread");
             Coroutine.IPool pool = new Coroutine.RoundRobinPool();
             Thread thread = new Thread(pool.Start);

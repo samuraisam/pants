@@ -40,7 +40,7 @@ namespace Aktor.Coroutine
 
         public void Join()
         {
-            _completedWaitEvent.Set();
+            _completedWaitEvent.WaitOne();
         }
 
         public void DidStop()

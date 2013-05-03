@@ -9,13 +9,14 @@ namespace Aktor.Coroutine
         private object _lock = new object();
         private bool _isShutdownRequested = false;
         private bool _isInterruptionRequested = false;
+        private ManualResetEvent _quitEvent = new ManualResetEvent(false);
 
         public void Start()
         {
             Run();
         }
 
-        public void Run()
+        private void Run()
         {
             try {
                 bool exitRequested = false;
@@ -69,7 +70,17 @@ namespace Aktor.Coroutine
                     }
                 }
             } finally {
-                // do some sort of cleanup
+                _quitEvent.Set();
+            }
+        }
+
+        public void Finish(bool waitUntilDone)
+        {
+            lock (_lock) {
+                _isShutdownRequested = true;
+            }
+            if (waitUntilDone) {
+                _quitEvent.WaitOne();
             }
         }
 

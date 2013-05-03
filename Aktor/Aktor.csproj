@@ -38,6 +38,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aktor.cs" />
+    <Compile Include="Coroutine\Coroutine.cs" />
+    <Compile Include="Coroutine\CoroutineState.cs" />
+    <Compile Include="Coroutine\ICoroutine.cs" />
+    <Compile Include="Coroutine\IPool.cs" />
+    <Compile Include="Coroutine\RoundRobinPool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
